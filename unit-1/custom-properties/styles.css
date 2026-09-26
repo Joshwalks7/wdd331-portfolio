@@ -10,23 +10,27 @@
     --color-bg: #ffdab0;
     --card-color-bg: #fff;
     --color-primary: #8F250C;
-    --accent-dark: #691E06;
-    --accent-light: #CA5310;
+    --color-secondary-accent: #691E06;
+    --color-accent-hover: #c75310;
     --color-text: #000;
     /* Spacing: at least sm, md, lg */
     --space-sm: .5rem;
     --space-md: 1.25rem;
     --space-lg: 2rem;
+    --card-columns-sm: 1fr;
+    --card-columns-md: 1fr 1fr;
     /* Typography: font family, base size */
     --font-heading: Garamond, Arial, sans-serif;
     --font-normal-content: Georgia, Arial, sans-serif;
     --font-size-sm: 1rem;
-    --font-size-md: 4vw;
+    --font-size-md: 1.5rem;
     --font-size-lg: 2rem;
     --font-size-xl: 3rem;
+    --font-size-xxl: 4rem;
     /* Borders: radius */
     --border-radius: 20px;
     --card-shadow: 0 2px 4px rgb(0,0,0,0.5);
+    --border-lines: 4px solid var(--color-secondary-accent);
 }
 
 /* ========================================
@@ -53,14 +57,14 @@ body {
     font-family: var(--font-normal-content);
     color: var(--color-text);
     line-height: var(--space-lg);
-    padding: clamp(var(--space-sm), var(--space-md), var(--space-lg));
-    font-size: clamp(var(--font-size-sm), var(--font-size-md), 1.4rem);
+    padding: clamp(var(--space-sm), 2vw, var(--space-lg));
+    font-size: clamp(var(--font-size-sm), 4vw, 1.4rem);
     a {
         /* link color from tokens */
-        color: var(--accent-dark);
+        color: var(--color-secondary-accent);
         &:hover {
             /* hover color from tokens */
-            color: var(--accent-light);
+            color: var(--color-accent-hover);
         }
     }
 }
@@ -84,17 +88,20 @@ body {
     /* text alignment, margin, padding */
     /* Use clamp() for the h1 font size. */
     text-align: center;
-    margin: 0 auto 15px;
-    color: var(--accent-dark);
-    padding: 0;
+    margin: 0 auto var(--space-md);
+    color: var(--color-secondary-accent);
+    padding: 0 0 var(--space-md);
+    border-bottom: var(--border-lines);
     h1 {
         /* fluid font size */
-        font-size: clamp(var(--font-size-lg), 8vw, var(--font-size-xl));
-        padding-bottom: var(--space-sm);
+        font-size: clamp(var(--font-size-xl), 11vw, var(--font-size-xxl));
+        font-family: var(--font-heading);
     }
 
     p {
         /* muted text color, spacing */
+        padding-top: var(--space-sm);
+        color: color-mix(in oklch, var(--color-primary) 55%, gray);
     }
 }
 
@@ -105,8 +112,13 @@ body {
    ======================================== */
 .card-group {
     /* margin-bottom using a token */
+    margin-bottom: var(--space-md);
     h2 {
         /* section heading styles */
+        font-family: var(--font-heading);
+        color: var(--color-primary);
+        font-size: clamp(var(--font-size-lg), 10vw, var(--font-size-xl));
+        padding-left: var(--space-md);
     }
 }
 
@@ -118,11 +130,13 @@ body {
 .cards {
     /* display, gap (use calc to derive from a token), columns */
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: var(--card-columns-sm);
     margin: 0 auto;
-    /* width: 90%; */
+    width: calc(100% - var(--space-sm));
+    gap: calc(8px + var(--space-sm));
+    margin-top: var(--space-md);
     @media (min-width: 700px) {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: var(--card-columns-md);
     }
 }
 
@@ -134,37 +148,63 @@ body {
 .card {
     /* background, padding, border-radius, shadow */
     /* Use a var() with a fallback value here. */
-    background-color: var(--card-color-bg);
-    border-radius: var(--border-radius);
+    background-color: var(--card-color-bg, white);
+    border-radius: var(--border-radius, 20px);
     margin: var(--space-sm);
     padding: var(--space-md);
     box-shadow: var(--card-shadow);
-
-    /* max-width: 450px; */
     .card-tag {
         /* small label: font-size, padding, background, border-radius */
         font-size: var(--font-size-sm);
+        padding: var(--space-sm);
+        margin: var(--space-sm) 0;
+        background-color: var(--color-accent-hover);
+        border-radius: var(--border-radius);
+        color: white;
+        width: calc(var(--space-lg) * 4.5);
+        line-height: calc(var(--space-md) * .8);
+        text-align: center;
+        font-weight: bold;
     }
 
     h3 {
         /* card title styles */
         color: var(--color-primary);
+        font-family: var(--font-heading);
+        font-size: clamp(var(--font-size-md), 8vw, var(--font-size-lg));
     }
 
     p {
         /* card body text */
+        margin: var(--space-sm) 0;
+        color: var(--color-text);
     }
 
     .card-meta {
         /* bottom row: flexbox with space-between */
         /* style the span and link inside here with nesting */
+        display: flex;
+        justify-content: space-between;
+        span {
+            font-weight: bold;
+            color: var(--color-secondary-accent);
+        }
+        a {
+            font-size: var(--font-size-sm);
+            &:hover {
+                transform: translateY(-4px);
+            }
+        }
     }
 }
-
 /* ========================================
    FOOTER
    Style the .board-footer at the bottom.
    ======================================== */
 .board-footer {
     /* text alignment, padding, muted color, top border */
+    text-align: center;
+    padding: var(--space-md);
+    border-top: var(--border-lines);
+    color: color-mix(in oklch, var(--color-primary) 55%, gray);
 }
