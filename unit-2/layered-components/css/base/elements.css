@@ -30,6 +30,10 @@ body {
       font-size: clamp(var(--font-size-md), 6vw, var(--font-size-lg));
       color: var(--color-text);
    }
+   :is(a, button, input, textarea, select):focus-visible {
+      outline: 2px solid var(--color-secondary-accent);
+      outline-offset: 2px;
+   }
    footer {
       text-align: center;
    }

@@ -21,12 +21,17 @@ nav {
          background-color: var(--color-bg);
          border: 2px solid var(--color-secondary-accent);
       }
+      &[aria-current="page"] {
+         color: var(--color-text);
+         background-color: var(--color-bg);
+         border: 2px solid var(--color-secondary-accent);
+      }
    }
    ul {
       margin-top: var(--space-sm);
       list-style-type: none;
       display: flex;
-      gap: 6px;
+      gap: var(--space-sm);
       flex-direction: column;
       @media (min-width: 600px) {
          flex-direction: row;

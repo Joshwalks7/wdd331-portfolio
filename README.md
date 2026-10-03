@@ -15,3 +15,4 @@ every push to main.
 
 - [Home](index.html)
 - [Ward Activity Board - Implementing Custom Properties and Nesting](unit-1/custom-properties/index.html)
+- [Scripture Study Companion - Layered Components + Modern Selectors](unit-2/layered-components/index.html)
