@@ -1,0 +1,17 @@
+/* Non-color tokens: spacing, typography, borders, shadows.
+   These values should be referenced by every other layer. */
+@import url('https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+:root {
+    /* TODO: Define spacing, font, radius, and shadow tokens here */
+    --space-sm: .5rem;
+    --space-md: 1rem;
+    --space-lg: 2rem;
+    --font-family: Cantarell, arial, sans-serif;
+    --border-radius: 20px;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.5rem;
+    --font-size-xl: 2.5rem;
+    --font-size-xxl: 4rem;
+    --grid-size-sm: 1fr;
+    --grid-size-lg: 1fr 1fr 1fr;
+}
