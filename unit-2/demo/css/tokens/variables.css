@@ -1,0 +1,10 @@
+:root {
+    --font-body: system-ui, sans-serif;
+    --font-heading: Georgia, serif;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 2rem;
+    --space-xl: 4rem;
+    --radius-md: 0.5rem;
+    --shadow-sm: 0 1px 3px rgb(40 27 38 / 0.12);
+}
