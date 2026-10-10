@@ -1,0 +1,9 @@
+:root {
+    /* Colors: at least primary, background, text, accent */
+    --color-bg: #e8f1fa;
+    --card-color-bg: #fff;
+    --color-primary: #092655;
+    --color-secondary-accent: #fe6634;
+    --color-accent-hover: #004f7f;
+    --color-text: #006eb6;
+}
