@@ -1,0 +1,21 @@
+:root {
+    /* Spacing: at least sm, md, lg */
+    --space-sm: .5rem;
+    --space-md: 1.25rem;
+    --space-lg: 2rem;
+    --card-columns-sm: 1fr;
+    --card-columns-md: 1fr 1fr;
+    /* Typography: font family, base size */
+    --font-heading: Garamond, Arial, sans-serif;
+    --font-body: system-ui, -apple-system, sans-serif;
+    --font-size-sm: 1rem;
+    --font-size-md: 1.5rem;
+    --font-size-lg: 2rem;
+    --font-size-xl: 3rem;
+    --font-size-xxl: 4rem;
+    --line-height: 1.6;
+    /* Borders: radius */
+    --border-radius: 20px;
+    --card-shadow: 0 2px 4px rgb(0,0,0,0.5);
+    --border-lines: 4px solid var(--color-secondary-accent);
+}
