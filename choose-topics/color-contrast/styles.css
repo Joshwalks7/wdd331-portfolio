@@ -1,0 +1,34 @@
+/* contrast-color("value") --> white / black */
+:root {
+    color-scheme: dark;
+    --surface: light-dark(#fff, #1e1e2e);
+    --bg-color: #317cff;
+}
+
+body {
+    background-color: var(--surface);
+    color: contrast-color(var(--surface));
+}
+
+header {
+    background-color: var(--bg-color);
+    color: white;
+    text-align: center;
+}
+@supports (color: contrast-color(blue)) {
+    header {
+        color: contrast-color(var(--bg-color));
+    }
+}
+
+section {
+    display: flex;
+    margin: 0 auto;
+    width: 80%;
+    padding: 10px;
+    justify-content: center;
+    img {
+        border: 3px solid contrast-color(var(--surface));
+        border-radius: 15px;
+    }
+}
