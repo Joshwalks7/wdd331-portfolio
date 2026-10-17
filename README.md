@@ -12,7 +12,8 @@ assignments. The site deploys automatically to GitHub Pages on
 every push to main.
 
 ## Architecture
-The home page is styled with layered CSS that is imported into main.css. This project uses Lightning CSS to compile the CSS into one file, currently located in dist/styles.css. To run this, simply run "npm install" and then "npm run build." Unit folders showcase work across the units.
+The home page is styled with layered CSS that is imported into main.css. This project uses Lightning CSS to compile the CSS into one file, currently located in dist/styles.css. Even though it is not used actively (main.css is), it works if used. To run this, simply run "npm install" and then "npm run build." Unit folders showcase work across the units.
+Additionally, dark/light mode has now been enabled for the home site. You can find the tokens used to style each mode in the css/tokens/ directory.
 Specific layout:
 ```text
 css/
@@ -21,7 +22,8 @@ css/
 │   └── reset.css
 ├── components/
 │   ├── card.css
-│   └── nav.css
+│   ├── nav.css
+│   └── theme-toggle.css
 ├── layout/
 │   └── primary.css
 ├── tokens/
@@ -30,6 +32,9 @@ css/
 ├── utilities/
 │   └── utilities.css
 └── main.css
+
+js/
+└── theme-preference.js
 
 dist/
 └── styles.css
@@ -44,3 +49,4 @@ dist/
 ## Choose Topics
 - [Bootstrap Choose Topic](https://youtu.be/n4xMBO8K5fQ)
 - [Lightning CSS Choose Topic](https://youtu.be/34RYou6i3sc)
+- [The "contrast-color" function](https://youtu.be/Y8apCqzfW7o)

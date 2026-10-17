@@ -5,10 +5,10 @@
    margin: var(--space-md) 0;
    .card {
       /* border: 3px solid var(--color-secondary-accent); */
-      box-shadow: var(--card-shadow);
+      box-shadow: var(--shadow-md);
       border-radius: var(--border-radius);
       padding: var(--space-md);
-      background-color: var(--card-color-bg);
+      background-color: var(--color-surface);
       a {
         img {
             width: 100%;

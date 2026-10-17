@@ -10,10 +10,10 @@ body {
 }
 a {
     /* link color from tokens */
-    color: var(--color-secondary-accent);
+    color: var(--color-link);
     &:hover {
         /* hover color from tokens */
-        color: var(--color-accent-hover);
+        color: var(--color-link-hover);
     }
 }
 header {
@@ -37,20 +37,20 @@ header {
         }
     }
 }
+h1, h2, h3 {
+    color: var(--color-text);
+}
 h1 {
     text-align: center;
     font-size: clamp(var(--font-size-xl), 11vw, var(--font-size-xxl));
     font-family: var(--font-heading);
-    color: var(--color-primary);
 }
 h2 {
     font-family: var(--font-heading);
-    color: var(--color-primary);
     font-size: clamp(var(--font-size-lg), 10vw, var(--font-size-xl));
     padding-left: var(--space-md);
 }
 h3 {
-    color: var(--color-primary);
     font-family: var(--font-heading);
     font-size: clamp(var(--font-size-md), 8vw, var(--font-size-lg));
 }
@@ -59,15 +59,10 @@ p {
     margin: var(--space-sm) 0;
     color: var(--color-text);
 }
-/* p { */
-    /* muted text color, spacing */
-    /* padding-top: var(--space-sm);
-    color: color-mix(in oklch, var(--color-primary) 55%, gray);
-} */
 footer {
     /* text alignment, padding, muted color, top border */
     text-align: center;
     padding: var(--space-md);
     border-top: var(--border-lines);
-    color: color-mix(in oklch, var(--color-primary) 55%, gray);
+    color: var(--color-text-muted);
 }
