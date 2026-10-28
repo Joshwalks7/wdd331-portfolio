@@ -1,0 +1,323 @@
+:root {
+    --background: #f4f6f8;
+    --surface: #ffffff;
+    --text: #1e293b;
+    --muted: #64748b;
+    --accent: #2563eb;
+    --accent-soft: #dbeafe;
+    --border: #cbd5e1;
+    --space: 1rem;
+    --shadow: 0 4px 12px rgb(15 23 42 / 12%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: var(--background);
+    color: var(--text);
+    font-family: system-ui, sans-serif;
+    line-height: 1.6;
+}
+
+body {
+    margin: 0;
+    padding: clamp(1rem, 3vw, 3rem);
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-block: 0;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+}
+
+h2 {
+    margin-block-end: 0.75rem;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+}
+
+h3 {
+    margin-block-end: 0.75rem;
+}
+
+code,
+pre {
+    font-family: Consolas, monospace;
+}
+
+code {
+    color: var(--accent);
+}
+
+pre {
+    margin-block: var(--space) 0;
+    padding: var(--space);
+    overflow: auto;
+    border-radius: 0.5rem;
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+.site-header,
+main,
+footer {
+    max-inline-size: 72rem;
+    margin-inline: auto;
+}
+
+.site-header {
+    margin-block-end: 2rem;
+    padding-block-end: 1.5rem;
+    border-block-end: 4px solid var(--accent);
+}
+
+.eyebrow {
+    margin-block-end: 0.4rem;
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.lede {
+    max-inline-size: 55ch;
+    margin-block-start: 1rem;
+    color: var(--muted);
+    font-size: 1.2rem;
+}
+
+.demo-panel {
+    margin-block: 1.5rem;
+    padding: clamp(1rem, 3vw, 2rem);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+}
+
+.controls {
+    display: grid;
+    gap: 1rem;
+}
+
+.control-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.control-label {
+    font-weight: 700;
+}
+
+.control-button {
+    padding-block: 0.5rem;
+    padding-inline: 0.9rem;
+    border: 2px solid var(--accent);
+    border-radius: 0.4rem;
+    background: var(--surface);
+    color: var(--accent);
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+}
+
+.control-button:hover,
+.control-button:focus-visible,
+.control-button.is-selected {
+    background: var(--accent);
+    color: white;
+}
+
+.status {
+    padding-block-start: 0.75rem;
+    border-block-start: 1px solid var(--border);
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.axis-demo {
+    position: relative;
+    min-block-size: 9rem;
+    margin-block-start: 1.5rem;
+    padding-block: 3rem;
+    padding-inline: 3rem;
+    border-inline-start: 4px solid var(--accent);
+    border-block-end: 4px solid var(--accent);
+    background: var(--accent-soft);
+}
+
+.inline-label,
+.block-label {
+    position: absolute;
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.inline-label {
+    inset-block-start: 0.5rem;
+    inset-inline-start: 1rem;
+}
+
+.block-label {
+    inset-block-end: 0.5rem;
+    inset-inline-end: 1rem;
+}
+
+.axis-copy {
+    display: block;
+    text-align: center;
+}
+
+.comparison-grid,
+.sizing-grid {
+    display: grid;
+    gap: 1rem;
+    margin-block-start: 1.5rem;
+}
+
+.comparison-grid {
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+
+.example-card {
+    padding: 1rem;
+    border: 2px solid var(--border);
+    border-radius: 0.5rem;
+}
+
+.logical-example .active-link {
+    margin-block: 1rem;
+    padding-inline-start: 1rem;
+    border-inline-start: 5px solid var(--accent);
+    font-weight: 700;
+}
+
+.physical-example .active-link {
+    margin-block: 1rem;
+    padding-left: 1rem;
+    border-left: 5px solid var(--accent);
+    font-weight: 700;
+}
+
+.example-note {
+    margin-block-start: 1rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.mapping-list {
+    display: grid;
+    gap: 0.75rem;
+    margin-block-start: 1.5rem;
+}
+
+.mapping-list div {
+    display: grid;
+    grid-template-columns: minmax(8rem, 1fr) auto minmax(12rem, 1fr);
+    gap: 0.75rem;
+    align-items: center;
+    padding-block: 0.6rem;
+    padding-inline: 0.75rem;
+    border-block-end: 1px solid var(--border);
+}
+
+.sizing-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(12rem, 20rem);
+    align-items: center;
+}
+
+.size-box {
+    display: grid;
+    place-items: center;
+    min-block-size: 8rem;
+    padding: 1rem;
+    border: 3px dashed var(--accent);
+    background: var(--accent-soft);
+    text-align: center;
+}
+
+.callout {
+    margin-block-start: 1.5rem;
+    padding-block: 0.75rem;
+    padding-inline: 1rem;
+    border-inline-start: 4px solid var(--accent);
+    background: var(--accent-soft);
+}
+
+.portfolio-card {
+    display: grid;
+    grid-template-columns: minmax(8rem, 1fr) 2fr;
+    gap: 1rem;
+    margin-block: 1.5rem;
+    padding: 1rem;
+    border-inline-start: 5px solid var(--accent);
+    border-radius: 0.5rem;
+    background: var(--background);
+}
+
+.portfolio-image {
+    display: grid;
+    place-items: center;
+    min-block-size: 10rem;
+    border-radius: 0.4rem;
+    background: linear-gradient(135deg, #93c5fd, #1d4ed8);
+    color: white;
+    font-weight: 800;
+}
+
+.portfolio-content {
+    align-self: center;
+}
+
+.portfolio-content p {
+    margin-block: 0.75rem;
+}
+
+.devtools-panel ol {
+    margin-block: 1rem 0;
+    padding-inline-start: 2rem;
+}
+
+footer {
+    padding-block: 2rem;
+    text-align: center;
+    color: var(--muted);
+}
+
+html[data-writing-mode="vertical-rl"] .axis-panel,
+html[data-writing-mode="vertical-rl"] .axis-panel .axis-demo {
+    writing-mode: vertical-rl;
+}
+
+html[data-writing-mode="vertical-rl"] .axis-panel .axis-demo {
+    min-block-size: 20rem;
+    min-inline-size: 12rem;
+}
+
+@media (max-width: 600px) {
+    .mapping-list div,
+    .sizing-grid,
+    .portfolio-card {
+        grid-template-columns: 1fr;
+    }
+
+    .mapping-list div span {
+        display: none;
+    }
+}

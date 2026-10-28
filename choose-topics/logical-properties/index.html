@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A demonstration of CSS logical properties and writing modes.">
+    <title>CSS Logical Properties Demo</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <p class="eyebrow">WDD 331R Choose Topic</p>
+        <h1>CSS Logical Properties</h1>
+        <p class="lede">Write layout rules for the direction text flows, not for one fixed side of the screen.</p>
+    </header>
+
+    <main>
+        <section class="demo-panel controls" aria-labelledby="controls-title">
+            <div>
+                <p class="eyebrow">Try it live</p>
+                <h2 id="controls-title">Change the writing direction</h2>
+                <p>Switch the same component between left-to-right and right-to-left. No CSS is rewritten.</p>
+            </div>
+            <div class="control-group" role="group" aria-label="Direction controls">
+                <button type="button" class="control-button is-selected" data-direction="ltr" aria-pressed="true">LTR</button>
+                <button type="button" class="control-button" data-direction="rtl" aria-pressed="false">RTL</button>
+            </div>
+            <div class="control-group" role="group" aria-label="Writing mode controls">
+                <span class="control-label">Writing mode:</span>
+                <button type="button" class="control-button is-selected" data-writing-mode="horizontal-tb" aria-pressed="true">Horizontal</button>
+                <button type="button" class="control-button" data-writing-mode="vertical-rl" aria-pressed="false">Vertical-rl</button>
+            </div>
+            <p class="status" id="direction-status" aria-live="polite">Current direction: left to right. Current writing mode: horizontal.</p>
+        </section>
+
+        <section class="demo-panel axis-panel" aria-labelledby="axis-title">
+            <div>
+                <p class="eyebrow">1. The two axes</p>
+                <h2 id="axis-title">Inline and block directions</h2>
+                <p>The <strong>inline axis</strong> follows the line of text. The <strong>block axis</strong> stacks lines and sections.</p>
+            </div>
+            <div class="axis-demo" aria-label="Diagram showing inline and block axes">
+                <span class="inline-label">Inline axis: text flow</span>
+                <span class="block-label">Block axis</span>
+                <span class="axis-copy">Start → Middle → End</span>
+            </div>
+        </section>
+
+        <section class="demo-panel" aria-labelledby="comparison-title">
+            <p class="eyebrow">2. Physical versus logical</p>
+            <h2 id="comparison-title">The same active navigation link</h2>
+            <p>Physical properties point to the screen. Logical properties point to the beginning of the text flow.</p>
+            <div class="comparison-grid">
+                <article class="example-card physical-example">
+                    <h3>Physical CSS</h3>
+                    <p class="active-link">Active page</p>
+                    <code>border-left<br>padding-left</code>
+                    <p class="example-note">The accent stays on the physical left in RTL.</p>
+                </article>
+                <article class="example-card logical-example">
+                    <h3>Logical CSS</h3>
+                    <p class="active-link">Active page</p>
+                    <code>border-inline-start<br>padding-inline-start</code>
+                    <p class="example-note">The accent follows the start of the text flow.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="demo-panel" aria-labelledby="mapping-title">
+            <p class="eyebrow">3. Property map</p>
+            <h2 id="mapping-title">Common physical-to-logical replacements</h2>
+            <div class="mapping-list">
+                <div><code>margin-left</code><span>→</span><code>margin-inline-start</code></div>
+                <div><code>padding-top</code><span>→</span><code>padding-block-start</code></div>
+                <div><code>width</code><span>→</span><code>inline-size</code></div>
+                <div><code>height</code><span>→</span><code>block-size</code></div>
+                <div><code>text-align: left</code><span>→</span><code>text-align: start</code></div>
+            </div>
+        </section>
+
+        <section class="demo-panel" aria-labelledby="sizing-title">
+            <p class="eyebrow">4. Logical sizing</p>
+            <h2 id="sizing-title">When to use inline-size and block-size</h2>
+            <div class="sizing-grid">
+                <div>
+                    <p><strong>Use logical sizing for content and layout.</strong> In a horizontal writing mode, these behave like width and height. In a vertical writing mode, they rotate with the text flow.</p>
+                    <pre><code>.article {
+  max-inline-size: 65ch;
+  min-block-size: 20rem;
+  margin-inline: auto;
+}</code></pre>
+                </div>
+                <div class="size-box">
+                    <span>inline-size: 100%</span>
+                    <span>block-size: 8rem</span>
+                </div>
+            </div>
+            <p class="callout"><strong>Keep physical width and height</strong> when a dimension is tied to a physical object or screen, such as a canvas, map, video, or fixed viewport overlay.</p>
+        </section>
+
+        <section class="demo-panel" aria-labelledby="portfolio-title">
+            <p class="eyebrow">5. Portfolio refactor</p>
+            <h2 id="portfolio-title">A card from my portfolio</h2>
+            <p>This card demonstrates the small refactor I will make live: spacing and image sizing now describe the writing flow.</p>
+            <article class="portfolio-card">
+                <div class="portfolio-image" aria-hidden="true">IMAGE</div>
+                <div class="portfolio-content">
+                    <h3>Logical Properties</h3>
+                    <p><code>margin-block</code>, <code>padding-inline</code>, <code>inline-size</code>, and <code>block-size</code> adapt when the direction changes.</p>
+                    <a href="../../index.html">Return to portfolio</a>
+                </div>
+            </article>
+            <pre><code>.card {
+  padding: var(--space-md);
+}
+
+.card img {
+  inline-size: 100%;
+  block-size: 200px;
+}</code></pre>
+        </section>
+
+        <section class="demo-panel devtools-panel" aria-labelledby="devtools-title">
+            <p class="eyebrow">6. Test it yourself</p>
+            <h2 id="devtools-title">Using DevTools</h2>
+            <ol>
+                <li>Select the <code>&lt;html&gt;</code> element in the Elements panel.</li>
+                <li>Change <code>dir="ltr"</code> to <code>dir="rtl"</code>.</li>
+                <li>Inspect the logical card and open the Computed tab.</li>
+                <li>Notice how <code>border-inline-start</code> resolves to a physical side.</li>
+            </ol>
+            <p class="callout">Changing the HTML <code>dir</code> attribute is a better real-world test than only adding <code>direction: rtl</code> in CSS because it also informs bidirectional text and assistive technology.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>CSS logical properties make internationalized layouts easier to maintain.</p>
+    </footer>
+</body>
+</html>
