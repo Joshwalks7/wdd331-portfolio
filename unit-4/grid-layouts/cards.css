@@ -1,0 +1,30 @@
+.articles-page {
+    .card-grid{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+        gap: var(--spacing-lg);
+        .card{
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            display: flex;
+            flex-direction: column;
+            > div:first-child {
+                block-size: 300px;
+                border: var(--color-accent) 2px dashed;
+            }
+            > div:last-child {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                h2 {
+                    font-size: clamp(var(--font-size-md), 10vw, var(--font-size-lg));
+                    padding: 0;
+                    text-align: center;
+                }
+                a {
+                    margin-block-start: auto;
+                }
+            }
+        }
+    }
+}
