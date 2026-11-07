@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&display=swap');
+
+:root {
+    --ink: #17211f;
+    --muted: #64716d;
+    --line: #d6dfdc;
+    --surface: #f5f7f4;
+    --accent: #d86643;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--surface);
+    font-family: 'Manrope', sans-serif;
+    line-height: 1.5;
+}
+
+.page-shell {
+    width: min(1180px, calc(100% - 3rem));
+    margin: 0 auto;
+    padding: 5rem 0 7rem;
+}
+
+.step-label,
+figcaption {
+    color: var(--accent);
+    font: 500 0.75rem/1.2 'DM Mono', monospace;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.demo-section {
+    padding: 3rem 0 5rem;
+    border-top: 1px solid var(--line);
+    /* overflow: hidden; */
+    overflow: clip;
+    /* sticky elements look for the nearest ancestor that has scroll context. Overflow: hidden causes the sticky element to no longer point to the page, rather the parent container (since it becomes a scroll container). The issue is overflow: hidden doesn't end up scrolling, so the sticky element never moves. One solution is to use overflow: clip. It still hides content outside of the boundaries, but it does not become a scroll container. For my site, I could have left either out. */
+}
+
+.sticky-heading {
+    position: sticky;
+    top: 0px;
+    padding: var(--spacing-lg);
+    background-color: var(--surface);
+    color: var(--ink);
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: minmax(250px, 0.8fr) minmax(280px, 1fr);
+    gap: 3rem;
+    align-items: end;
+    margin-bottom: 2rem;
+
+    h2 {
+        margin: 0;
+        font-size: clamp(1.8rem, 4vw, 3rem);
+        line-height: 1;
+        letter-spacing: -0.05em;
+    }
+}
+
+.step-label {
+    margin: 0 0 0.6rem;
+}
+
+.explanation {
+    max-width: 480px;
+    margin: 0;
+    color: var(--muted);
+}
+
+.gallery {
+    width: 100%;
+}
+
+.gallery-item {
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: white;
+
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    figcaption {
+        padding: 0.7rem 0.85rem;
+        color: var(--muted);
+        border-top: 1px solid var(--line);
+    }
+}
+
+/* Baseline: rows align to the tallest item in each row, leaving visible gaps. */
+.standard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    align-items: start;
+}
+
+/* Workaround: cards flow down columns and pack tightly within each column. */
+.columns-grid {
+    column-count: 3;
+    column-gap: 1rem;
+
+    .gallery-item {
+        break-inside: avoid;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Fallback: readable standard Grid for browsers without experimental support. */
+.grid-lanes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    align-items: start;
+}
+
+/* Progressive enhancement: experimental packed lanes when the browser supports them. */
+@supports (display: grid-lanes) {
+    .grid-lanes-grid {
+        display: grid-lanes;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+    }
+}
+
+.support-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin: 0 0 1.5rem;
+    padding: 0.55rem 0.75rem;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    background: white;
+    font: 0.78rem/1.4 'DM Mono', monospace;
+
+    .support-indicator {
+        width: 0.55rem;
+        height: 0.55rem;
+        border-radius: 50%;
+        background: var(--accent);
+    }
+}
+
+code {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.9em;
+}
+
+.code-preview {
+    display: grid;
+    grid-template-columns: 11rem 1fr;
+    gap: 1rem;
+    align-items: start;
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--line);
+    background: #202b29;
+    color: #dbe8e2;
+
+    .code-label {
+        margin: 0.15rem 0 0;
+        color: #f1a384;
+        font: 500 0.7rem/1.4 'DM Mono', monospace;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    pre {
+        margin: 0;
+        overflow-x: auto;
+
+        code {
+            color: #dbe8e2;
+            font-size: 0.85rem;
+            line-height: 1.65;
+        }
+    }
+}
+
+@media (max-width: 760px) {
+    .page-shell {
+        width: min(100% - 1.5rem, 560px);
+        padding-top: 3rem;
+    }
+
+    .explanation {
+        margin-top: 1rem;
+    }
+
+    .code-preview {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .standard-grid,
+    .grid-lanes-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .columns-grid {
+        column-count: 2;
+    }
+
+}
+
+@media (max-width: 460px) {
+    .standard-grid,
+    .grid-lanes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .columns-grid {
+        column-count: 1;
+    }
+
+}

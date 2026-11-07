@@ -48,6 +48,8 @@ dist/
 - [Visual Effects](unit-3/visual-effects/index.html)
 - [Editorial Grid](unit-4/grid-layouts/editorial.html)
 - [Responsive Grid](unit-4/grid-layouts/cards.html)
+- [Container Queries](unit-4/advanced/container-demo.html)
+- [Sticky Positioning](unit-4/advanced/sticky-demo.html)
 
 ## Choose Topics
 - [Bootstrap Choose Topic](https://youtu.be/n4xMBO8K5fQ)
@@ -55,3 +57,4 @@ dist/
 - [The "contrast-color" function](https://youtu.be/Y8apCqzfW7o)
 - [Shape-Outside](https://www.youtube.com/watch?v=KY7MboGwRE0)
 - [Logical Properties](https://youtu.be/u-Aw4Pyw2fA)
+- [Masonry CSS](https://youtu.be/WPKIWkG6wYs)
