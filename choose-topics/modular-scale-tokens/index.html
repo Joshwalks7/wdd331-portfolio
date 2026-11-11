@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An interactive guide to modular type scales with CSS custom properties and math functions.">
+    <link rel="stylesheet" href="modular-scale.css">
+    <title>Modular Scale Tokens</title>
+</head>
+<body>
+    <main class="page-shell">
+        <header class="hero">
+            <p class="eyebrow">CSS choose topic / type systems</p>
+            <h1>One ratio.<br><em>A whole scale.</em></h1>
+            <p class="hero-intro">Use CSS custom properties to describe a modular type scale, then use <code>pow()</code> to calculate every step from the same two inputs.</p>
+            <div class="hero-links">
+                <a class="jump-link" href="fixed-to-scale.html">View the fixed-value demo <span aria-hidden="true">↗</span></a>
+                <a class="jump-link" href="#ratio-demo">Try the live demo <span aria-hidden="true">↓</span></a>
+            </div>
+        </header>
+
+        <section class="lesson-section" aria-labelledby="idea-heading">
+            <div class="section-heading">
+                <div><p class="step-label">01 / The idea</p><h2 id="idea-heading">A scale is a relationship</h2></div>
+                <p class="explanation">A modular scale starts with a base size and repeatedly multiplies it by a ratio. The ratio becomes one knob for the whole type hierarchy.</p>
+            </div>
+            <div class="formula-card">
+                <div class="formula"><span>step size</span><strong>base × ratio<sup>step</sup></strong></div>
+                <div class="formula-example"><span>18px × 1.25<sup>2</sup></span><strong>= 28.13px</strong></div>
+            </div>
+            <div class="prose-grid">
+                <p>With <code>pow(base, exponent)</code>, the first argument is the number being raised and the second argument is the power. In CSS, <code>pow()</code> lives inside <code>calc()</code>, so the browser computes each token from the base and ratio.</p>
+                <p>Changing the ratio from <code>1.25</code> to <code>1.333</code> shifts every computed step at once. That is the advantage over hand-picked font sizes: the hierarchy stays coherent while you explore its shape.</p>
+            </div>
+            <div class="code-preview"><p class="code-label">The token recipe</p><pre><code>:root {
+  --base: 1.125rem;
+  --ratio: 1.25;
+  --font-size-xl: calc(
+    var(--base) * pow(var(--ratio), 2)
+  );
+}</code></pre></div>
+        </section>
+
+        <section class="lesson-section" aria-labelledby="table-heading">
+            <div class="section-heading"><div><p class="step-label">02 / See the math</p><h2 id="table-heading">The scale table</h2></div><p class="explanation">Start with a table before applying the tokens to a layout. Adjacent rows show exactly how the ratio creates the hierarchy.</p></div>
+            <div class="scale-table-wrap"><table class="scale-table"><caption>Computed from a 1.125rem base and a 1.25 ratio</caption><thead><tr><th scope="col">Token</th><th scope="col">Step</th><th scope="col">CSS expression</th><th scope="col">Value</th></tr></thead><tbody id="scale-rows"></tbody></table></div>
+        </section>
+
+        <section class="lesson-section" id="ratio-demo" aria-labelledby="ratio-heading">
+            <div class="section-heading"><div><p class="step-label">03 / The live demo</p><h2 id="ratio-heading">Turn the ratio knob</h2></div><p class="explanation">Drag the slider and watch every sample resize together. The named stops are common musical ratios used in type systems.</p></div>
+            <div class="control-card">
+                <div class="control-header"><label for="ratio-slider">Ratio</label><output id="ratio-output" for="ratio-slider">1.250</output></div>
+                <input id="ratio-slider" type="range" min="1.1" max="1.5" step="0.001" value="1.25">
+                <div class="slider-notes"><span>1.100<br><small>minor second</small></span><span>1.250<br><small>major third</small></span><span>1.500<br><small>perfect fifth</small></span></div>
+            </div>
+            <div class="type-preview" aria-live="polite">
+                <div class="preview-meta"><span>Live type specimen</span><span id="ratio-name">major third</span></div>
+                <h3>Display heading</h3><h4>Section heading</h4><h5>Subsection heading</h5><p class="lead">Lead paragraph with a little more presence.</p><p>Body text at the base size, keeping the reading rhythm steady.</p>
+            </div>
+        </section>
+
+        <section class="lesson-section split-section" aria-labelledby="negative-heading">
+            <div class="section-heading"><div><p class="step-label">04 / Go below zero</p><h2 id="negative-heading">Negative exponents</h2></div></div>
+            <div><p class="explanation">A negative exponent divides by the ratio. This gives captions, labels, and fine print a deliberate place in the same system instead of an arbitrary smaller value.</p><div class="negative-demo"><span style="font-size: var(--font-size-xs)">Caption / xs</span><span style="font-size: var(--font-size-sm)">Supporting text / sm</span><span style="font-size: var(--font-size-md)">Body / md</span></div><div class="code-inline"><code>--font-size-sm: calc(var(--base) * pow(var(--ratio), -1));</code></div></div>
+        </section>
+
+        <section class="lesson-section split-section" aria-labelledby="round-heading">
+            <div class="section-heading"><div><p class="step-label">05 / Clean values</p><h2 id="round-heading">Use round() deliberately</h2></div></div>
+            <div><p class="explanation">Ratio math can produce fractional pixels. <code>round()</code> can snap a specific step to a clean interval when pixel alignment matters, without rounding every token and slowly distorting the scale.</p><div class="round-compare"><div><span>True ratio</span><strong>35.15625px</strong></div><div class="selected"><span>Rounded to 1px</span><strong>35px</strong></div></div><div class="code-inline"><code>--font-size-xl: round(calc(var(--base) * pow(var(--ratio), 2)), 1px);</code></div></div>
+        </section>
+
+        <section class="lesson-section split-section" aria-labelledby="fluid-heading">
+            <div class="section-heading"><div><p class="step-label">06 / Make it fluid</p><h2 id="fluid-heading">Let the base breathe</h2></div></div>
+            <div><p class="explanation">Put <code>clamp()</code> on the base and every computed step inherits that fluidity. This is concise and powerful; clamp steps individually only when each one needs a different range.</p><div class="fluid-card"><code>--base: clamp(1rem, 0.8rem + 1vw, 1.125rem);</code><span>One fluid input propagates through the scale.</span></div></div>
+        </section>
+
+        <footer class="takeaway"><p class="eyebrow">Takeaway</p><h2>Scale, measure, rhythm.</h2><p>Your size tokens set the type hierarchy. A comfortable <code>ch</code> width controls line length, while <code>lh</code> and <code>rlh</code> tie spacing to the same reading rhythm. Together, they make a system rather than a collection of unrelated numbers.</p></footer>
+    </main>
+    <script src="modular-scale.js" defer></script>
+</body>
+</html>
