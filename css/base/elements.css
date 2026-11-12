@@ -57,7 +57,7 @@ h2 {
 }
 h3 {
     font-family: var(--font-family-heading);
-    font-size: var(--font-size-heading-sm);
+    font-size: var(--font-size-heading-md);
     line-height: var(--line-height-heading);
 }
 
@@ -66,6 +66,9 @@ p {
     color: var(--color-text);
     font-size: var(--font-size-body);
     line-height: var(--line-height-body);
+}
+.card p {
+    font-size: var(--font-size-md);
 }
 footer {
     /* text alignment, padding, muted color, top border */
