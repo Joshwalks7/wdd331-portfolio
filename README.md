@@ -14,6 +14,11 @@ every push to main.
 ## Architecture
 The home page is styled with layered CSS that is imported into main.css. This project uses Lightning CSS to compile the CSS into one file, currently located in dist/styles.css. Even though it is not used actively (main.css is), it works if used. To run this, simply run "npm install" and then "npm run build." Unit folders showcase work across the units.
 Additionally, dark/light mode has now been enabled for the home site. You can find the tokens used to style each mode in the css/tokens/ directory.
+
+## Typography
+
+Typography tokens live in `css/tokens/variables.css`. The type system uses a minor-third modular scale with a `1.2` ratio, fluid `clamp()` values for larger sizes, and semantic roles for body text, supporting text, headings, and display text. EB Garamond is loaded for headings with `display=swap` from Google Fonts, while body text uses a system sans-serif fallback stack. Unfortunately, I kept running into a bug with the Google import, so I had to import it in the html pages themselves rather than in main.css.
+
 Specific layout:
 ```text
 css/
