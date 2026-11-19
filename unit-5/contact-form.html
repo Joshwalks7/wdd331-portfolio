@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <header>
+        <h1>Contact Me</h1>
+        <p>Have a question or want to work together? Send me a message.</p>
+    </header>
+
+    <main>
+        <h2>Simple Contact Form</h2>
+        <form action="#" method="post">
+            <div>
+                <label for="name">Name</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    autocomplete="name"
+                    required
+                >
+            </div>
+
+            <div>
+                <label for="email">Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    autocomplete="email"
+                    required
+                >
+            </div>
+
+            <div>
+                <label for="reason">Reason for reaching out</label>
+                <select id="reason" name="reason" required>
+                    <option value="" selected disabled>Choose a reason</option>
+                    <option value="project">Project inquiry</option>
+                    <option value="collaboration">Collaboration</option>
+                    <option value="question">General question</option>
+                    <option value="feedback">Website feedback</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="urgency">How urgent is your message?</label>
+                <input
+                    type="range"
+                    id="urgency"
+                    name="urgency"
+                    min="1"
+                    max="5"
+                    value="3"
+                >
+                <span>1 = not urgent, 5 = very urgent</span>
+            </div>
+
+            <div>
+                <label for="message">Message</label>
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="8"
+                    required
+                ></textarea>
+            </div>
+
+            <button type="submit">Send message</button>
+        </form>
+
+        <div>
+            Check out the unstyled/unedited form! <a href="unedited-form.html">Unedited Form</a> | <a href="../index.html">Home</a>
+        </div>
+    </main>
+</body>
+</html>
