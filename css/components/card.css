@@ -3,14 +3,13 @@
 .cards {
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-   gap: calc(var(--space-md) * .8);
-   margin-block: var(--space-md);
+   gap: calc(var(--spacing-md) * .8);
+   margin-block: var(--spacing-md);
    .card {
-      /* border: 3px solid var(--color-secondary-accent); */
-      border-inline-start: 5px solid var(--color-primary);
-      box-shadow: var(--shadow-md);
-      border-radius: var(--border-radius);
-      padding: var(--space-md);
+      border-inline-start: 5px solid var(--color-text);
+      box-shadow: var(--card-shadow);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-md);
       background-color: var(--color-surface);
       overflow: hidden;
       a {
@@ -18,7 +17,7 @@
             inline-size: 100%;
             block-size: 200px;
             object-fit: cover;
-            border-radius: var(--border-radius);
+            border-radius: var(--radius-lg);
             transition: transform 200ms ease;
         }
         &:hover img{

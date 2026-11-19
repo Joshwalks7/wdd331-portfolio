@@ -1,0 +1,14 @@
+.resume {
+    max-width: 80%;
+    margin: 0 auto;
+    h2 {
+        padding-left: 0;
+    }
+    ul {
+        margin-inline-start: var(--spacing-xl);
+    }
+    &> section:not(:first-of-type) {
+        border-block-start: var(--border-lines);
+    }
+}
+

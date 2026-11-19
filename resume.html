@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Joshua Walker">
+    <meta name="description" content="Portfolio site for WDD331">
+    <title>Joshua Walker | Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    <script src="js/theme-preference.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/resumeprint.css">
+</head>
+<body>
+    <header>
+        <h1>Joshua Walker - Resume</h1>
+        <nav>
+            <ul>
+                <li><a href="contact.html">Contact Me</a></li>
+                <li><a href="resume.html">Resume</a></li>
+            </ul>
+        </nav>
+            <details class="theme-menu">
+                <summary class="theme-control">
+                    <span class="visually-hidden">Color scheme</span>
+                </summary>
+                <div class="theme-extra" role="group" aria-label="Choose color scheme">
+                    <label class="theme-control theme-pick" data-theme-pick="light">
+                        <input name="theme-preference" type="radio" value="light">
+                        <span aria-hidden="true">&#9788;&#65039;</span>
+                        <span class="visually-hidden">Light</span>
+                    </label>
+                    <label class="theme-control theme-pick" data-theme-pick="system">
+                        <input name="theme-preference" type="radio" value="system" checked>
+                        <span aria-hidden="true">&#9881;&#65039;</span>
+                        <span class="visually-hidden">System default</span>
+                    </label>
+                    <label class="theme-control theme-pick" data-theme-pick="dark">
+                        <input name="theme-preference" type="radio" value="dark">
+                        <span aria-hidden="true">&#127766;</span>
+                        <span class="visually-hidden">Dark</span>
+                    </label>
+                </div>
+            </details>
+    </header>
+
+    <main>
+        <article class="resume" aria-labelledby="resume-heading">
+            <header class="resume-header">
+                <h2 id="resume-heading">Joshua Walker</h2>
+                <address>
+                    joshwalks914@gmail.com
+                    <span aria-hidden="true">•</span>
+                    208-851-0926
+                    <span aria-hidden="true">•</span>
+                    <a href="https://linkedin.com/in/jwalker-swe">LinkedIn</a>
+                    <span aria-hidden="true">•</span>
+                    <a href="https://github.com/Joshwalks7">GitHub</a>
+                </address>
+            </header>
+
+            <section aria-labelledby="summary-heading">
+                <h2 id="summary-heading">Professional Summary</h2>
+                <p>
+                    Software engineering student at Brigham Young University - Idaho with an emphasis in
+                    full-stack development. Experienced in JavaScript, MySQL, C#, tutoring, code review,
+                    database design, and Git/GitHub workflows, with a strong record of leadership and service.
+                </p>
+            </section>
+
+            <section aria-labelledby="education-heading">
+                <h2 id="education-heading">Education</h2>
+                <article class="resume-entry">
+                    <h3>Bachelor of Science in Software Engineering - 4.0 GPA</h3>
+                    <p>
+                        <strong>Brigham Young University - Idaho</strong>
+                        <span>Rexburg, ID</span>
+                    </p>
+                    <p>Anticipated graduation: December 2027</p>
+                    <ul>
+                        <li>Emphasis in Full-Stack Development</li>
+                        <li>Leadership: Computing Society President; Web Design and Development Society Officer</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section aria-labelledby="skills-heading">
+                <h2 id="skills-heading">Skills</h2>
+                <div>
+                    <div>
+                        <strong>Programming Languages:</strong> JavaScript, Python, C#, MySQL, HTML, CSS
+                    </div>
+                    <div>
+                        <strong>Certifications:</strong> AWS Certified Cloud Practitioner; BYU-Idaho Web and Computer Programming
+                    </div>
+                    <div>
+                        <strong>Other Skills:</strong> React, Node.js, object-oriented programming, Git/GitHub, Spanish, Eagle Scout
+                    </div>
+                </div>
+            </section>
+
+            <section aria-labelledby="work-heading">
+                <h2 id="work-heading">Work Experience</h2>
+                <article class="resume-entry">
+                    <h3>JavaScript &amp; MySQL Teaching Assistant</h3>
+                    <p>
+                        <strong>Brigham Young University - Idaho</strong>
+                        <span>Rexburg, ID</span>
+                    </p>
+                    <p><time datetime="2026-04">April 2026</time> - Present</p>
+                    <ul>
+                        <li>Guide students through DOM manipulation, troubleshooting errors, and core JavaScript concepts.</li>
+                        <li>Perform weekly code reviews for 160+ assignments, delivering actionable feedback on code quality.</li>
+                        <li>Provide support for repository management, resolving issues related to Git/GitHub workflows.</li>
+                        <li>Evaluate student database designs by reviewing table normalization and schema structures.</li>
+                    </ul>
+                </article>
+
+                <article class="resume-entry">
+                    <h3>Crew Manager</h3>
+                    <p>
+                        <strong>United States Forest Service</strong>
+                        <span>WY, AZ, CO, UT</span>
+                    </p>
+                    <p><time datetime="2025-07">July 2025</time> - <time datetime="2025-09">September 2025</time></p>
+                    <ul>
+                        <li>Managed daily inventory and distribution records for 10+ daily supply orders, ensuring accurate resource tracking and enabling a strict 24-hour delivery turnaround for active wildfire firefighters.</li>
+                        <li>Supervised and delegated labor for a team of 8 to 10 crew members across supply and facility units during 14-day deployments across four distinct wildfire base camps.</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section aria-labelledby="projects-heading">
+                <h2 id="projects-heading">Projects</h2>
+                <ul>
+                    <li><strong>J's Journal:</strong> Deployed a self-hosted journaling web app on Raspberry Pi using React, Node/Express, and SQLite.</li>
+                    <li><strong>Trailhead Outfitters:</strong> Designed a mobile-first mock ecommerce site that loads data from a JSON file and saves users' carts in local storage.</li>
+                    <li><strong>LEGO Inventory Manager:</strong> Built an object-oriented C# application using an eight-class architecture to manage dynamic LEGO inventories.</li>
+                </ul>
+            </section>
+
+            <section aria-labelledby="volunteer-heading">
+                <h2 id="volunteer-heading">Volunteer Experience</h2>
+                <article class="resume-entry">
+                    <h3>Full-Time Volunteer Representative</h3>
+                    <p>
+                        <strong>The Church of Jesus Christ of Latter-day Saints</strong>
+                        <span>Spain</span>
+                    </p>
+                    <p><time datetime="2023-07">July 2023</time> - <time datetime="2025-06">June 2025</time></p>
+                    <ul>
+                        <li>Contributed to 16 leadership councils to boost individual outreach from 600 to 2000 individuals monthly.</li>
+                        <li>Conducted 8 training workshops for 70 representatives focusing on leadership, teamwork, and planning.</li>
+                    </ul>
+                </article>
+
+                <article class="resume-entry">
+                    <h3>CSE Drop-in Lab Tutor</h3>
+                    <p>
+                        <strong>Brigham Young University - Idaho</strong>
+                        <span>Rexburg, Idaho</span>
+                    </p>
+                    <p><time datetime="2026-02">February 2026</time> - <time datetime="2026-07">July 2026</time></p>
+                    <ul>
+                        <li>Offered 36+ hours of tutoring to students, providing one-on-one debugging and conceptual support.</li>
+                    </ul>
+                </article>
+            </section>
+        </article>
+    </main>
+</body>
+</html>
