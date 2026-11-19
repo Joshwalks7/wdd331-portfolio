@@ -1,79 +1,204 @@
 body {
-    /* font family, color, background, line-height, padding */
-    /* Use clamp() for padding to make it fluid. */
-    background-color: var(--color-bg);
-    font-family: var(--font-family-body);
-    color: var(--color-text);
-    line-height: var(--line-height-body);
-    padding: clamp(var(--space-sm), 2vw, var(--space-lg));
-    font-size: var(--font-size-body);
+  /* font family, color, background, line-height, padding */
+  /* Use clamp() for padding to make it fluid. */
+  background-color: var(--color-bg);
+  font-family: var(--font-family-body);
+  color: var(--color-text);
+  line-height: var(--line-height-body);
+    padding: clamp(var(--spacing-sm), 2vw, var(--spacing-lg));
+  font-size: var(--font-size-body);
 }
 a {
-    /* link color from tokens */
-    color: var(--color-link);
-    &:hover {
-        /* hover color from tokens */
-        color: var(--color-link-hover);
-    }
+  /* link color from tokens */
+  color: var(--color-link);
+  &:hover {
+    /* hover color from tokens */
+    color: var(--color-link-hover);
+  }
 }
 header {
-    margin: 0 auto var(--space-md);
-    padding: 0 0 var(--space-md);
-    border-bottom: var(--border-lines);
+    margin: 0 auto var(--spacing-md);
+    padding: 0 0 var(--spacing-md);
+  border-bottom: var(--border-lines);
 
-    @media (min-width: 600px) {
-        display: flex;
-        align-items: center;
-        gap: var(--space-lg);
+  @media (min-width: 600px) {
+    display: flex;
+    align-items: center;
+        gap: var(--spacing-lg);
 
-        h1 {
-            flex: 1 1 auto;
-            min-width: 0;
-            text-align: left;
-        }
-
-        nav {
-            flex: 0 0 auto;
-        }
+    h1 {
+      flex: 1 1 auto;
+      min-width: 0;
+      text-align: left;
     }
+
+    nav {
+      flex: 0 0 auto;
+    }
+  }
 }
 #intro-statement {
-    font-size: var(--font-size-lead);
+  font-size: var(--font-size-lead);
 }
-h1, h2, h3 {
-    color: var(--color-text);
+h1,
+h2,
+h3 {
+  color: var(--color-text);
 }
 h1 {
-    text-align: center;
-    font-size: var(--font-size-display);
-    font-family: var(--font-family-heading);
-    line-height: var(--line-height-display);
+  text-align: center;
+  font-size: var(--font-size-display);
+  font-family: var(--font-family-heading);
+  line-height: var(--line-height-display);
 }
 h2 {
-    font-family: var(--font-family-heading);
-    font-size: var(--font-size-heading-lg);
-    line-height: var(--line-height-heading);
-    padding-left: var(--space-md);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-heading-lg);
+  line-height: var(--line-height-heading);
+    padding-left: var(--spacing-md);
 }
 h3 {
-    font-family: var(--font-family-heading);
-    font-size: var(--font-size-heading-md);
-    line-height: var(--line-height-heading);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-heading-md);
+  line-height: var(--line-height-heading);
 }
 
 p {
-    margin: var(--space-sm) 0;
-    color: var(--color-text);
-    font-size: var(--font-size-body);
-    line-height: var(--line-height-body);
+    margin: var(--spacing-sm) 0;
+  color: var(--color-text);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
 }
 .card p {
-    font-size: var(--font-size-md);
+  font-size: var(--font-size-lead);
 }
 footer {
-    /* text alignment, padding, muted color, top border */
-    text-align: center;
-    padding: var(--space-md);
-    border-top: var(--border-lines);
-    color: var(--color-text-muted);
+  /* text alignment, padding, muted color, top border */
+  text-align: center;
+    padding: var(--spacing-md);
+  border-top: var(--border-lines);
+  color: var(--color-text-muted);
+}
+
+/* Contact form controls */
+form {
+  width: 50%;
+  margin: 0 auto;
+
+  select {
+    appearance: none;
+    background-color: var(--color-bg);
+    color: var(--color-accent);
+    background-image: url("/images/arrow.svg");
+    background-repeat: no-repeat;
+    background-position: right var(--spacing-sm) center;
+    background-size: 1rem;
+    padding-inline-end: var(--spacing-lg);
+  }
+
+  input[type="range"] {
+    appearance: none;
+    width: 100%;
+    height: 1.5rem;
+    margin-block: var(--spacing-sm);
+    background: transparent;
+    cursor: pointer;
+  }
+
+  input[type="range"]::-webkit-slider-runnable-track {
+    height: 0.5rem;
+    border-radius: 999px;
+    background-color: var(--color-border-strong);
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-block-start: -0.375rem;
+    border: 2px solid var(--color-bg);
+    border-radius: 50%;
+    background-color: var(--color-accent);
+  }
+
+  input[type="range"]::-moz-range-track {
+    height: 0.5rem;
+    border-radius: 999px;
+    background-color: var(--color-border-strong);
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid var(--color-bg);
+    border-radius: 50%;
+    background-color: var(--color-accent);
+  }
+
+  input,
+  select,
+  textarea {
+    outline: none;
+  }
+
+  :where(input, select, textarea, button):focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  input[type="range"]:focus-visible::-webkit-slider-thumb,
+  input[type="range"]:focus-visible::-moz-range-thumb {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 6rem;
+    max-height: 12rem;
+    field-sizing: content;
+  }
+
+  input,
+  textarea {
+    caret-color: var(--color-accent);
+    border-radius: var(--radius-lg);
+    padding: 3px;
+  }
+
+  button {
+    width: 200px;
+    border: 0;
+    border-radius: var(--radius-lg);
+    background-color: var(--color-accent);
+    color: white;
+    font-size: var(--font-size-lead);
+    cursor: pointer;
+  }
+}
+
+@media (forced-colors: active) {
+  form select {
+    appearance: auto;
+    background-image: none;
+  }
+
+  form input[type="range"] {
+    forced-color-adjust: none;
+  }
+
+  form input[type="range"]::-webkit-slider-runnable-track,
+  form input[type="range"]::-moz-range-track {
+    background-color: CanvasText;
+  }
+
+  form input[type="range"]::-webkit-slider-thumb,
+  form input[type="range"]::-moz-range-thumb {
+    border-color: Canvas;
+    background-color: Highlight;
+  }
+
+  form input[type="range"]:focus-visible {
+    outline-color: Highlight;
+  }
 }

@@ -1,0 +1,49 @@
+@media print {
+    body, h1, h2, h3, p {
+        font-size: 11pt;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: black;
+        line-height: 1.4;
+        margin: 0 auto;
+    }
+    h1 {
+        font-size: 20pt;
+    }
+    h2 {
+        font-size: 18pt;
+    }
+    h3 {
+        font-size: 14pt;
+    }
+    body > header {
+        display: none;
+    }
+    header {
+        display: block;
+        text-align: center;
+        border-color: black;
+    }
+    .resume {
+        max-width: 100%;
+        margin: 0 auto;
+        margin: 0;
+        padding: 0;
+        orphans: 3;
+        widows: 3;
+        a {
+            color: black;
+        }
+            a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.9em;
+        color: black;
+    }
+    }
+    .resume-entry {
+        break-inside: avoid;
+    }
+    section {
+        border-color: black;
+        break-inside: avoid;
+    }
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Joshua Walker">
+    <meta name="description" content="Portfolio site for WDD331">
+    <title>Contact</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    <script src="js/theme-preference.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <header>
+        <h1>Contact Form</h1>
+        <nav>
+            <ul>
+                <li><a href="contact.html">Contact Me</a></li>
+                <li><a href="resume.html">Resume</a></li>
+            </ul>
+        </nav>
+            <details class="theme-menu">
+                <summary class="theme-control">
+                    <span class="visually-hidden">Color scheme</span>
+                </summary>
+                <div class="theme-extra" role="group" aria-label="Choose color scheme">
+                    <label class="theme-control theme-pick" data-theme-pick="light">
+                        <input name="theme-preference" type="radio" value="light">
+                        <span aria-hidden="true">&#9788;&#65039;</span>
+                        <span class="visually-hidden">Light</span>
+                    </label>
+                    <label class="theme-control theme-pick" data-theme-pick="system">
+                        <input name="theme-preference" type="radio" value="system" checked>
+                        <span aria-hidden="true">&#9881;&#65039;</span>
+                        <span class="visually-hidden">System default</span>
+                    </label>
+                    <label class="theme-control theme-pick" data-theme-pick="dark">
+                        <input name="theme-preference" type="radio" value="dark">
+                        <span aria-hidden="true">&#127766;</span>
+                        <span class="visually-hidden">Dark</span>
+                    </label>
+                </div>
+            </details>
+    </header>
+
+    <main>
+        <h2>Simple contact form to stay in touch</h2>
+        <form action="#" method="post">
+            <div>
+                <label for="name">Name</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    autocomplete="name"
+                    required
+                >
+            </div>
+
+            <div>
+                <label for="email">Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    autocomplete="email"
+                    required
+                >
+            </div>
+
+            <div>
+                <label for="reason">Reason for reaching out</label>
+                <select id="reason" name="reason" required>
+                    <option value="" selected disabled>Choose a reason</option>
+                    <option value="project">Project inquiry</option>
+                    <option value="collaboration">Collaboration</option>
+                    <option value="question">General question</option>
+                    <option value="feedback">Website feedback</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="urgency">How urgent is your message?</label>
+                <input
+                    type="range"
+                    id="urgency"
+                    name="urgency"
+                    min="1"
+                    max="5"
+                    value="3"
+                >
+                <span>1 = not urgent, 5 = very urgent</span>
+            </div>
+
+            <div>
+                <label for="message">Message</label>
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="8"
+                    required
+                ></textarea>
+            </div>
+
+            <button type="submit">Send message</button>
+        </form>
+
+        <div>
+            I will get back within 48 hours. View the unedited form: <a href="unit-5/unedited-form.html">Unedited Form</a>
+            | <a href="index.html">Home</a>
+        </div>
+    </main>
+</body>
+</html>

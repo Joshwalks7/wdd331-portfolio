@@ -10,6 +10,7 @@
 
 /* Layout */
 @import url('layout/primary.css') layer(layout);
+@import url('layout/resume.css') layer(layout);
 
 /* Components */
 @import url('components/card.css') layer(components);

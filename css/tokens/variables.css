@@ -1,7 +1,6 @@
 :root {
     /* Typography */
     --font-family-sans: system-ui, sans-serif;
-    --font-family-mono: monospace;
     --font-family-heading: "EB Garamond", Garamond, Georgia, serif;
     --font-family-body: var(--font-family-sans);
     /* minor third scale 1.2 */
@@ -30,7 +29,6 @@
     --line-height-display: 1.05;
 
     /* Spacing */
-    --spacing-xs: 4px;
     --spacing-sm: 8px;
     --spacing-md: 16px;
     --spacing-lg: 24px;
@@ -38,7 +36,6 @@
 
     /* Radii */
     --radius-sm: 4px;
-    --radius-md: 6px;
     --radius-lg: 8px;
 
     /* Transitions */
@@ -51,29 +48,9 @@
     /* Focus */
     --outline-width: 2px;
 
-    /* Legacy aliases */
-    --space-sm: var(--spacing-sm);
-    --space-md: var(--spacing-md);
-    --space-lg: var(--spacing-lg);
-    --font-body: var(--font-family-sans);
-    --border-radius: var(--radius-lg);
-
-    /* Site-specific typography */
-    --font-heading: var(--font-family-heading);
-    --line-height: var(--line-height-body);
-
-    /* Layout */
-    --card-columns-sm: 1fr;
-    --card-columns-md: 1fr 1fr;
-
     /* Existing component tokens */
     --card-shadow: var(--shadow-md);
     --border-lines: 4px solid var(--color-accent);
-
-    /* elevation shadow tokens */
-    --shadow-sm:
-        0 1px 2px var(--shadow-color),
-        0 2px 4px rgb(0 0 0 / 0.06);
 
     --shadow-md:
         0 4px 6px var(--shadow-color),
